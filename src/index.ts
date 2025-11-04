@@ -97,20 +97,20 @@ app.get("/api/trends/24h", async (c) => {
   return c.json(rows);
 });
 
-app.post("/api/data", async (c) => {
-  const modifier: PresetType = c.req.query('condition');
+// app.post("/api/data", async (c) => {
+//   const modifier: PresetType = c.req.query('condition');
 
-  if (!modifier || modifier === '' || !preset.includes(modifier)) {
-    cache.del('modifier')
-  }
+//   if (!modifier || modifier === '' || !preset.includes(modifier)) {
+//     cache.del('modifier')
+//   }
 
-  cache.set('modifier', modifier);
-})
+//   cache.set('modifier', modifier);
+// })
 
 serve(
   {
     fetch: app.fetch,
-    port: 3000,
+    port: 1234,
   },
   (info) => {
     console.log(`🚀 Server is running at http://localhost:${info.port}`)
