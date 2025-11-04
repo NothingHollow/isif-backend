@@ -1,0 +1,26 @@
+{
+  "name": "isif-backend",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "tsx src/tests/data.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.5",
+    "@neondatabase/serverless": "^1.0.2",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.44.6",
+    "hono": "^4.10.1",
+    "mqtt": "^5.14.1",
+    "node-cache": "^5.1.2",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "drizzle-kit": "^0.31.5",
+    "tsx": "^4.20.6",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,0 +1,1 @@
+ALTER TABLE "readings" DROP COLUMN "temperature";

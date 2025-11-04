@@ -1,0 +1,11 @@
+{
+  "flash": {
+    "light_intensity": 3000
+  },
+  "clear": {
+    "light_intensity": 500
+  },
+  "dirty": {
+    "light_intensity": 40
+  }
+}
