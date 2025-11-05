@@ -23,7 +23,7 @@ client.on('connect', () => {
 client.on('message', async (topic, message) => {
   try {
     const data: SensorMessage = JSON.parse(message.toString())
-    const parsed: SensorReading = sensorReadingSchema.parse(data)
+    let parsed: SensorReading = sensorReadingSchema.parse(data)
     latestData = parsed
     console.log('📥 MQTT message received:', parsed)
 
@@ -33,7 +33,21 @@ client.on('message', async (topic, message) => {
       timestamp: parsed.timestamp || new Date(),
     })
 
+    // console.log(global.cache.get('modifier'));
+    // console.log(global.cache.get('custom'))
+
+    // if (global.cache.get('modifier') === 'custom') {
+    //   const data = global.cache.get('custom')
+    //   parsed = {
+    //     light_intensity: data.light_intensity,
+    //     ph_level: data.ph_level,
+    //     turbidity: data.turbidity,
+    //     timestamp: parsed.timestamp || new Date(),
+    //   }
+    // }
+
     // Broadcast to all active SSE subscribers
+  console.log(parsed)
     for (const cb of subscribers) cb(parsed)
   } catch (err) {
     console.error('❌ Failed to parse MQTT message:', err)
